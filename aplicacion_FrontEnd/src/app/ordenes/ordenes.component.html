@@ -1,0 +1,39 @@
+<div class="container table-responsive py-5"> 
+    <table class="table table-bordered table-hover border-secondary">
+      <thead class="thead-dark table-secondary">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Orden</th>
+          <th scope="col">Productos</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="ordenes.length === 0">
+          <td colspan="5" class="text-center text-danger"><i class="bi bi-ban"></i> No hay Ordenes Recientes <i class="bi bi-ban"></i></td>
+        </tr>
+        <ng-container *ngFor="let cart of ordenes; let i = index">
+          <tr *ngFor="let product of cart.value; let j = index">
+            <th scope="row">{{i*cart.value.length + j + 1}}</th>
+            <td>{{cart.key}}</td>
+            <td><p *ngFor=" let producto of product">{{producto.nombre}}</p></td>
+            <td><p *ngFor=" let producto of product">{{producto.precio | currency }}</p></td>
+            <td><p>{{ getTotalPrice(product) | currency }}</p></td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <a href="/ordenes">
+      <button *ngIf="ordenes.length > 0"  type="button" class="btn btn-danger m-2" (click)="borrarOrdenes()">
+        <i class="bi bi-trash"></i> Borrar Storage
+      </button>
+    </a>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <!-- <tr *ngFor="let ordenes of ordenes">
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td></td>
+        </tr> -->

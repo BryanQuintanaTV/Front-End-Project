@@ -1,0 +1,76 @@
+
+<div class="vw-100 vh-100">
+
+  <nav class="mb-4 navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/inicio">&nbsp;<img src="bazinga.svg" height="60" alt=""></a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" aria-controls="navbarSupportedContent-4" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngClass]="{'collapse': isNavbarCollapsed}" class="navbar-collapse" id="navbarSupportedContent-4">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/inicio" (click)="collapseNavbar()"> <i class="bi bi-house-fill"></i>&nbsp;Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/restaurante" (click)="collapseNavbar()"><i class="bi bi-egg-fried"></i>&nbsp;Restaurante</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ordenes" (click)="collapseNavbar()"><i class="bi bi-journals"></i>&nbsp;Ordenes</a>
+          </li>
+        </ul>
+    </div>
+  </nav>
+  
+  <router-outlet></router-outlet>
+  
+  
+  <footer class="mainfooter" [class.fixed-bottom]="fixedFooter" role="contentinfo">
+    <div class="footer-middle py-4 bg-dark text-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
+            <!-- Column 1 -->
+            <div class="footer-pad">
+              <h4>Equipo Integrantes</h4>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-dot text-secondary"></i>Quintana Juarez Bryan Alexis - 21550295</li>
+                <li><i class="bi bi-dot text-secondary"></i>Martinez Chavez Edgar Alejandro - 21550364</li>
+                <li><i class="bi bi-dot text-secondary"></i>Marquez Torres Gabriel Josue - 21550316</li>
+                <li><i class="bi bi-dot text-secondary"></i>Murillo Andrade Sebastián Emilio - 21550384</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
+            <!-- Column 3 -->
+            <div class="footer-pad">
+              <h4>Info</h4>
+              <ul class="list-unstyled">
+                <li><span class="text-secondary"><b>Materia:</b></span> Programación Web FrontEnd</li>
+                <li><span class="text-secondary"><b>Docente:</b></span> José Carlos  Rodríguez Baeza</li>
+                <li class="text-secondary"><b></b></li>
+                <li class="text-secondary"><b></b></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h4>Repositorio</h4>
+            <ul class="list-unstyled d-flex">
+              <li class="me-2">
+                <a href="https://github.com/BryanQuintanaTV/Front-End-Project" class="text-light" title="Github" target="_blank"><i class="bi bi-github"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center mt-4">
+            <p class="mb-0">&copy; Copyright {{currentYear}} - Equipo Bazinga. All rights reserved. <i class="bi bi-emoji-laughing-fill"></i></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+</div>
+
+

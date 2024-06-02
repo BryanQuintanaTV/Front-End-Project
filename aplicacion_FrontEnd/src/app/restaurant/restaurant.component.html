@@ -1,0 +1,53 @@
+<div class="container mt-4">
+    <div class="row">
+      <!-- Products List -->
+      <div class="col-12 col-lg-8 mb-4">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let producto of productos">
+            <div class="card h-100">
+              <img [src]="producto.imagen" class="card-img-top" alt="{{ producto.nombre }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ producto.nombre }}</h5>
+                <p class="card-text"><i>{{ producto.descripcion }}</i></p>
+                <p class="card-text"><strong>Precio:</strong> {{ producto.precio | currency }}</p>
+                <button type="button" class="btn btn-primary" (click)="addToCart(producto.id)">
+                  <i class="bi bi-cart-plus"></i> Agregar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Cart -->
+      <div class="col-12 col-lg-4">
+        <div class="cart sticky-top">
+          <h3>Carrito&nbsp;<i class="bi bi-cart-fill"></i></h3>
+          <br>
+          <p *ngIf="cart.length === 0" class="mb-o text-secondary"> Carrito Vacio </p> 
+          <div class="cart-items">
+            <div *ngFor="let producto of cart" class="mb-2 d-flex justify-content-between align-items-center">
+              <p class="mb-0">{{ producto.nombre }} <span><b>-</b></span> {{ producto.precio | currency }}</p>
+              <button type="button" class="btn btn-danger btn-sm" (click)="removeFromCart(producto.id)">
+                <i class="bi bi-trash"></i> Remove
+              </button>
+            </div>
+          </div>
+          <h4>Total: {{ total | currency }}</h4>
+            <div class="container">
+                <div>
+                    <div>
+                        <button *ngIf="cart.length > 0" type="button" class="btn btn-success m-2" (click)="checkout(cart)">
+                          <i class="bi bi-cash"></i> Completar Orden 
+                        </button>
+                        <button *ngIf="cart.length > 0" type="button" class="btn btn-danger m-2" (click)="cancelOrder()">
+                          <i class="bi bi-x-circle"></i> Cancelar Orden
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
